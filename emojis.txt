@@ -1,0 +1,32 @@
+# Add these as CUSTOM emojis on your Discord server.
+# Name must match exactly (bot resolves by name). Animated OK.
+
+tick
+Wrong
+loading
+service
+Admin
+captcha
+mail
+Icon_Mail
+password
+password_recovery40
+Accounts
+combo
+account
+xbox
+hypixel
+donut
+minecraft
+mcfa
+netflix
+steam
+Nitro
+emoji_1
+emoji_2
+emoji_3
+emoji_5
+emoji_6
+emoji_7
+emoji_10
+giveaway
