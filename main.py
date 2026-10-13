@@ -598,12 +598,17 @@ async def on_ready():
     print(f"Role: {AUTHORIZED_ROLE_ID}")
     print("=" * 60)
     try:
-        guild_id = os.getenv("GUILD_ID") or os.getenv("DISCORD_GUILD_ID")
-        if guild_id:
-            g = discord.Object(id=int(guild_id))
-            bot.tree.copy_global_to(guild=g)
-            synced = await bot.tree.sync(guild=g)
-            print(f"Synced {len(synced)} guild commands → {guild_id}")
+        raw = os.getenv("GUILD_ID") or os.getenv("DISCORD_GUILD_ID") or ""
+        # supports: one id, or comma-separated: id1,id2,id3
+        guild_ids = [x.strip() for x in raw.replace(";", ",").split(",") if x.strip()]
+        for gid in guild_ids:
+            try:
+                g = discord.Object(id=int(gid))
+                bot.tree.copy_global_to(guild=g)
+                synced = await bot.tree.sync(guild=g)
+                print(f"Synced {len(synced)} commands → guild {gid}")
+            except Exception as ge:
+                print(f"Guild sync failed for {gid}: {ge}")
         synced = await bot.tree.sync()
         print(f"Synced {len(synced)} global commands")
     except Exception as err:

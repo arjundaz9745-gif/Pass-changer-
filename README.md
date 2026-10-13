@@ -39,7 +39,7 @@ pip install -r requirements.txt
 |----------|----------|-------------|
 | `DISCORD_TOKEN` | **Yes** | Bot token (or `DISCORD_BOT_TOKEN`) |
 | `PORT` | No | HTTP health port (Render sets this; default `10000`) |
-| `GUILD_ID` | No | Server ID — faster slash-command sync |
+| `GUILD_ID` | No | One server ID, or several: `id1,id2,id3` |
 
 On **Render**: set `DISCORD_TOKEN`, start command:
 
